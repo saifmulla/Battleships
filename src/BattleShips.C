@@ -18,7 +18,8 @@ void Battleships::BattleShips::validate()
 
 void Battleships::BattleShips::play()
 {
-		
+
+
 }
 
 bool Battleships::BattleShips::getResult()

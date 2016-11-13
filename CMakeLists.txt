@@ -1,14 +1,29 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8) #minimum cmake version for building project
 
-IF(NOT PROJECT_NAME)
-	PROJECT_NAME(Battleships)
-ENDIF(NOT PROJECT_NAME)
+# project name
+PROJECT(Battleships)
+
+SET(PROJECT_NAME Battleships)
 
 # ###############################################
 # yes we are building shared libraries
 ADD_DEFINITIONS(-DBUILD_SHARED_LIB)
 # we are building the code as shared library accordingly we must set a name
 SET(SHARED_LIB_NAME Battleships)
+# executale name
+SET(EXECUTABLE_NAME battleship)
+# ###############################################
+# Make VC happy and group all the binary outputs,
+# also make sure GMock headers will compile in
+# all targets.
+IF( MSVC )
+	SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
+	SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
+	SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib/)
+	ADD_DEFINITIONS( -D_VARIADIC_MAX=10)
+ENDIF( MSVC )
+
+SET(CMAKE_EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 # set c++11 flags by default for the moment
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 SET(ADDITIONAL_COMP_FLAGS "")
@@ -17,6 +32,11 @@ SET(ADDITIONAL_COMP_FLAGS "")
 INCLUDE_DIRECTORIES(BEFORE 
 	${CMAKE_CURRENT_SOURCE_DIR}/include
 	)
+
+# ###############################################
+# create executable to run the actual code using the shared library
+ADD_EXECUTABLE(${EXECUTABLE_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/battleships.cpp)
+TARGET_LINK_LIBRARIES(${EXECUTABLE_NAME} ${SHARED_LIB_NAME})
 
 # include the source files to be compiled and generated as shared library
 SET(SOURCE_FILES_CPP
