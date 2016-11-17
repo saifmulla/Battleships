@@ -11,7 +11,7 @@ ADD_DEFINITIONS(-DBUILD_SHARED_LIB)
 # we are building the code as shared library accordingly we must set a name
 SET(SHARED_LIB_NAME Battleships)
 # executale name
-SET(EXECUTABLE_NAME battleship)
+SET(EXECUTABLE_NAME run)
 # ###############################################
 # Make VC happy and group all the binary outputs,
 # also make sure GMock headers will compile in
@@ -24,8 +24,15 @@ IF( MSVC )
 ENDIF( MSVC )
 
 SET(CMAKE_EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-# set c++11 flags by default for the moment
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+# set c++11 flags for compiler types
+IF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+ELSEIF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ELSEIF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+	# DO something for msc++
+ENDIF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+
 SET(ADDITIONAL_COMP_FLAGS "")
 
 # include header files to be included for sources to compile
@@ -43,6 +50,7 @@ SET(SOURCE_FILES_CPP
 	${CMAKE_CURRENT_SOURCE_DIR}/src/PrimaryBoard.C
 	${CMAKE_CURRENT_SOURCE_DIR}/src/TrackingBoard.C
 	${CMAKE_CURRENT_SOURCE_DIR}/src/BattleShips.C
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Validator.C
 	)
 
 # ###############################################

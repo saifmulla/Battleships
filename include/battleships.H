@@ -8,5 +8,6 @@
 #include <battleships/Board.H>
 #include <battleships/PrimaryBoard.H>
 #include <battleships/TrackingBoard.H>
+#include <battleships/Validator.H>
 
 #endif

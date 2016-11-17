@@ -26,9 +26,8 @@ private:
 	Battleships::Validator* valid_;
 	std::string player1_;
 	std::string player2_;
-	enum class Player
-	{
-		one,
+	enum class Player : int{
+		one = 0,
 		two
 	};
 

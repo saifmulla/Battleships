@@ -17,13 +17,13 @@ int main(int argc, char *argv[])
 	std::cout << "Enter name of second player: ";
 	std::cin >> player2;
 
-	// initialise battleships
+	// TODO 1. initialise battleships
 	BattleShips* battle = new BattleShips(player1,player2);
-	// intialise game
+	// TODO 2. intialise game
 
-	// validate all data
+	// TODO 3. validate all data
 
-	// run a loop and for every turn ask for grid to fire
+	// TODO 4. run a loop and for every turn ask for grid to fire
 
 	// pass the grid number
 

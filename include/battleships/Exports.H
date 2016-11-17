@@ -34,6 +34,7 @@
 
 #define X_SIZE 10
 #define Y_SIZE 10
+constexpr const int kTotalSumofNonZeros = 63;
 
 #endif
 // ************************************************************************* //
