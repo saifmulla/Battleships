@@ -1,0 +1,16 @@
+language: cpp
+os:
+    - linux
+    - osx
+compiler:
+    - g++
+    - clang++
+branches:
+    only:
+        - master
+        - devel
+script:
+    - mkdir _build && cd _build
+    - cmake ../
+    - make
+    - make test
