@@ -44,7 +44,7 @@ language: cpp
 os:
     - linux
     - osx
-    
+
 compiler:
     - g++
     - clang++
@@ -54,6 +54,6 @@ branches:
         - devel
 script:
     - mkdir _build && cd _build
-    - cmake ../
+    - cmake ../ -DCMAKE_CXX_COMPILER=$COMPILER
     - make
     - make test
