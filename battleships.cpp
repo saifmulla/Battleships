@@ -3,6 +3,7 @@
 #include "battleships/battleships.H"
 #include <iostream>
 #include <string>
+#include <array>
 
 using namespace Battleships;
 
@@ -17,15 +18,18 @@ int main(int argc, char *argv[])
 	std::cout << "Enter name of second player: ";
 	std::cin >> player2;
 
-	// TODO 1. initialise battleships
-	BattleShips* battle = new BattleShips(player1,player2);
-	// TODO 2. intialise game
+	std::array<std::string,2> players = {player1,player2};
+	// 1. initialise game
+	Game* game = new BattleShips(player1,player2);
 
-	// TODO 3. validate all data
+	//2. intialise game
+	game->initialise();
+
+	//3. validate all data
+	game->validate();
 
 	// TODO 4. run a loop and for every turn ask for grid to fire
-
-	// pass the grid number
-
+	game->play();
+	
 	return 1;
 }

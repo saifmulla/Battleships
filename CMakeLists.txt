@@ -23,6 +23,16 @@ IF( MSVC )
 	ADD_DEFINITIONS( -D_VARIADIC_MAX=10)
 ENDIF( MSVC )
 
+# SET(CMAKE_EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+# set c++11 flags for compiler types
+IF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+ELSEIF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ELSEIF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+	# DO something for msc++
+ENDIF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+
 SET(CMAKE_EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 # set c++11 flags for compiler types
 IF ( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -56,6 +66,10 @@ SET(SOURCE_FILES_CPP
 # ###############################################
 # add target to create shared library
 ADD_LIBRARY(${SHARED_LIB_NAME} SHARED ${SOURCE_FILES_CPP})
+
+INSTALL(TARGETS ${SHARED_LIB_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+INSTALL(TARGETS ${EXECUTABLE_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+INSTALL(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include FILES_MATCHING PATTERN *.H)
 
 # ###############################################
 # by default unit tests are disabled

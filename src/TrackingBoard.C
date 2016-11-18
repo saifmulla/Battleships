@@ -23,6 +23,16 @@ void Battleships::TrackingBoard::initialise()
 
 }
 
+void Battleships::TrackingBoard::setCell(int x, int y, int value)
+{
+	this->grid_[x][y] = value;
+}
+
+const int Battleships::TrackingBoard::getCell(int x, int y) const
+{
+	return this->grid_[x][y];
+}
+
 std::vector<std::vector<int>>& Battleships::TrackingBoard::getBoard()
 {
 	return this->grid_;

@@ -30,6 +30,10 @@ public:
 
 	virtual std::vector<std::vector<int>>& getBoard() override;
 
+	virtual const int getCell(int x, int y) const override;
+
+	virtual void setCell(int x, int y, int value) override;
+
 };	
 
 }// end namespace

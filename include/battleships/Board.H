@@ -28,6 +28,10 @@ public:
 
 	virtual std::vector<std::vector<int>>& getBoard() = 0;
 
+	virtual const int getCell(int x, int y) const = 0;
+
+	virtual void setCell(int x, int y, int value) = 0;
+
 	virtual ~Board(){
 	}
 

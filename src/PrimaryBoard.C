@@ -55,6 +55,17 @@ void Battleships::PrimaryBoard::initialise()
 
 }
 
+void Battleships::PrimaryBoard::setCell(int x, int y, int value)
+{
+	// this->grid_[x][y] = value;
+
+}
+
+const int Battleships::PrimaryBoard::getCell(int x, int y) const
+{
+	return this->grid_[x][y];
+}
+
 // TODO: replace this with optimal shared_ptr<>
 std::vector<std::vector<int>>& Battleships::PrimaryBoard::getBoard()
 {

@@ -65,7 +65,7 @@ void Battleships::Validator::displayBoard(
 {
 	for(auto x:board){
 		for(auto y:x){
-			std::cout << y << "\t";		
+			std::cout << y << "  ";		
 		}
 		std::cout << "\n\n";
 	}
