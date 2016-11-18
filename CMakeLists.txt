@@ -1,3 +1,12 @@
+# ###############################################
+# ///////////// BattleShips \\\\\\\\\\\\\\\\\\\\\\
+# This is the primary cmake file for the complete project
+# therefore to compile this project this file must located 
+# with CMAKE command
+# this project was built using cmake v2.8 therefore any version
+# beyond 2.8 should be able to compile this file
+# ###############################################
+
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8) #minimum cmake version for building project
 
 # project name
@@ -9,7 +18,7 @@ SET(PROJECT_NAME Battleships)
 # yes we are building shared libraries
 ADD_DEFINITIONS(-DBUILD_SHARED_LIB)
 # we are building the code as shared library accordingly we must set a name
-SET(SHARED_LIB_NAME Battleships)
+SET(SHARED_LIB_NAME battleships)
 # executale name
 SET(EXECUTABLE_NAME run)
 # ###############################################

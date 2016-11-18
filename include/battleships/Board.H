@@ -4,6 +4,7 @@
 #include "battleships/Exports.H"
 #include <memory>
 #include <vector>
+#include <iostream>
 
 namespace Battleships {
 

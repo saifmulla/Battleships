@@ -12,7 +12,15 @@ Battleships::TrackingBoard::TrackingBoard()
 
 void Battleships::TrackingBoard::display()
 {
-
+	std::cout << "====================" << std::endl;
+	std::cout << "    Tracking Board" << std::endl;
+	std::cout << "====================" << std::endl;
+	for(auto x:grid_){
+		for(auto y:x){
+			std::cout << y << "  ";		
+		}
+		std::cout << "\n\n";
+	}
 }
 
 void Battleships::TrackingBoard::initialise()
