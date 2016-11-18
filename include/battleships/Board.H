@@ -1,6 +1,9 @@
 #ifndef BATTLESHIPS_BOARD_H
 #define BATTLESHIPS_BOARD_H
 
+///////////////////////////////////////////////////////////////////////////////
+// Board 
+// Class board is a abstract pure virtual base class 
 #include "battleships/Exports.H"
 #include <memory>
 #include <vector>
@@ -20,6 +23,8 @@ protected:
 	};
 
 public:
+	// display()
+	// This is 
 	virtual void display() = 0;
 
 	virtual void initialise() = 0;

@@ -46,8 +46,11 @@ public:
 	virtual void play() = 0;
 
 	/////////////////////////////////////////////
+	// GetResult
+	// implement this function to repond with outcome of the game everthing a
+	// query is sent
+	// @return bool
 	//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//
-
 	virtual bool getResult() = 0;
 
 };

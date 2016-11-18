@@ -53,3 +53,5 @@ the code is written in executable `run` which can be used to generate outputs. T
 ```
 run
 ```  
+Moreover while inputing the grid index for the moment one has to input the exact 0 based 2d grid index for the grid, like 0 0 or 0 9 this is very inconvinient but will be trying to provide a better interface very soon.  
+  

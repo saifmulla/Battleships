@@ -24,12 +24,9 @@ private:
 	std::vector<Battleships::PrimaryBoard*> primaryBoards_;
 	std::vector<Battleships::TrackingBoard*> trackingBoards_;
 	Battleships::Validator* valid_;
+	// presently battleships supports only two players
 	std::string player1_;
 	std::string player2_;
-	enum class Player : int{
-		one = 0,
-		two
-	};
 
 public:
 	// this constructor is explicit
@@ -38,6 +35,8 @@ public:
 		const std::string player2
 		);
 
+	// intialise
+	// this function is use to invoke initialise on all board on players
 	virtual void initialise() override;
 
 	virtual void validate() override;
